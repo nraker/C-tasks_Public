@@ -13,9 +13,9 @@ namespace students
     public partial class Form1 : Form
     {
 
-           public Stack<string> student_stack = new Stack<string>();
-           public Queue<string> student_queue = new Queue<string>();
-           public string student_name;
+           Stack<string> student_stack = new Stack<string>();
+           Queue<string> student_queue = new Queue<string>();
+           string student_name;
 
 
         private void button2_Click(object sender, EventArgs e)

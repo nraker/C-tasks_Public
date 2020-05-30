@@ -13,11 +13,11 @@ namespace students
     public partial class Form1 : Form
     {
 
-           public Stack<string> student_stack = new Stack<string>();
-           public Queue<string> student_queue = new Queue<string>();
-           public string student_name;
+           Stack<string> student_stack = new Stack<string>();
+           Queue<string> student_queue = new Queue<string>();
+           string student_name;
 
-
+        refres
         private void button2_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked && student_stack.Count > 0)
@@ -30,7 +30,7 @@ namespace students
                 label1.Text = "Last extracted in queue: " + student_queue.Dequeue(); // Извлекает позицию из очереди и возвращает ее в label
                 label2.Text = "Student list: " + string.Join(", ", student_queue.ToArray()); // Показывает все позиции в очереди
             }
-            else if(radioButton1.Checked && student_stack.Count <= 0)
+            else if (radioButton1.Checked && student_stack.Count <= 0)
             {
                 label1.Text = "No students in stack";
             }

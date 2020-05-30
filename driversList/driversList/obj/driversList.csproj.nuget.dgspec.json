@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Никита\\source\\repos\\driversList\\driversList\\driversList.csproj": {}
+    "C:\\Users\\Никита\\Documents\\GitHub\\C-tasks_Public\\driversList\\driversList\\driversList.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Никита\\source\\repos\\driversList\\driversList\\driversList.csproj": {
+    "C:\\Users\\Никита\\Documents\\GitHub\\C-tasks_Public\\driversList\\driversList\\driversList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Никита\\source\\repos\\driversList\\driversList\\driversList.csproj",
+        "projectUniqueName": "C:\\Users\\Никита\\Documents\\GitHub\\C-tasks_Public\\driversList\\driversList\\driversList.csproj",
         "projectName": "driversList",
-        "projectPath": "C:\\Users\\Никита\\source\\repos\\driversList\\driversList\\driversList.csproj",
+        "projectPath": "C:\\Users\\Никита\\Documents\\GitHub\\C-tasks_Public\\driversList\\driversList\\driversList.csproj",
         "packagesPath": "C:\\Users\\Никита\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Никита\\source\\repos\\driversList\\driversList\\obj\\",
+        "outputPath": "C:\\Users\\Никита\\Documents\\GitHub\\C-tasks_Public\\driversList\\driversList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Никита\\AppData\\Roaming\\NuGet\\NuGet.Config",

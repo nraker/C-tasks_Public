@@ -1,0 +1,11 @@
+C:\Users\Никита\source\repos\driversList\driversList\bin\Debug\netcoreapp3.1\driversList.exe
+C:\Users\Никита\source\repos\driversList\driversList\bin\Debug\netcoreapp3.1\driversList.deps.json
+C:\Users\Никита\source\repos\driversList\driversList\bin\Debug\netcoreapp3.1\driversList.runtimeconfig.json
+C:\Users\Никита\source\repos\driversList\driversList\bin\Debug\netcoreapp3.1\driversList.runtimeconfig.dev.json
+C:\Users\Никита\source\repos\driversList\driversList\bin\Debug\netcoreapp3.1\driversList.dll
+C:\Users\Никита\source\repos\driversList\driversList\bin\Debug\netcoreapp3.1\driversList.pdb
+C:\Users\Никита\source\repos\driversList\driversList\obj\Debug\netcoreapp3.1\driversList.csprojAssemblyReference.cache
+C:\Users\Никита\source\repos\driversList\driversList\obj\Debug\netcoreapp3.1\driversList.AssemblyInfoInputs.cache
+C:\Users\Никита\source\repos\driversList\driversList\obj\Debug\netcoreapp3.1\driversList.AssemblyInfo.cs
+C:\Users\Никита\source\repos\driversList\driversList\obj\Debug\netcoreapp3.1\driversList.dll
+C:\Users\Никита\source\repos\driversList\driversList\obj\Debug\netcoreapp3.1\driversList.pdb

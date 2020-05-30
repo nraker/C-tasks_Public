@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.exe
 C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.deps.json
 C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.runtimeconfig.json
@@ -9,3 +10,16 @@ C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\n
 C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.AssemblyInfo.cs
 C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.dll
 C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.pdb
+=======
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.exe
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.deps.json
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.runtimeconfig.json
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.runtimeconfig.dev.json
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.dll
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\bin\Debug\netcoreapp3.1\stack_Calculator.pdb
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.csprojAssemblyReference.cache
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.AssemblyInfoInputs.cache
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.AssemblyInfo.cs
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.dll
+C:\Users\Никита\source\repos\stack_Calculator\stack_Calculator\obj\Debug\netcoreapp3.1\stack_Calculator.pdb
+>>>>>>> 2d35935795a2564976fa05d17323b086b09b2bfa

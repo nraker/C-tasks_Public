@@ -127,36 +127,43 @@ namespace driversList
                             i++;
                             break;
                         case "4":
-                            for (int n = 0; n >= 0; n--)
+                            if (drivers.Count > 0 && isNumber)
                             {
-                                driversCount = drivers.Count;
-
-                                Console.WriteLine("Enter driver bus number");
-                                c = Console.ReadLine();
-                                bool isNum = int.TryParse(c, out number);
-                                if (isNum)
+                                for (int n = 0; n >= 0; n--)
                                 {
-                                    drivers.Remove(new driver() { busNumber = Convert.ToInt32(c) });
-                                    driversCount1 = drivers.Count;
-                                    if(driversCount != driversCount1)
+                                    driversCount = drivers.Count;
+
+                                    Console.WriteLine("Enter driver bus number");
+                                    c = Console.ReadLine();
+                                    bool isNum = int.TryParse(c, out number);
+                                    if (isNum && drivers.Count > 0)
                                     {
-                                        Console.WriteLine("Driver successfully deleted");
+                                        drivers.Remove(new driver() { busNumber = Convert.ToInt32(c) });
+                                        driversCount1 = drivers.Count;
+                                        if (driversCount != driversCount1)
+                                        {
+                                            Console.WriteLine("Driver successfully deleted");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("Driver with this bus number not found. Try again. \n");
+                                            foreach (driver aDriver in drivers)
+                                            {
+                                                Console.WriteLine(aDriver);
+                                            }
+                                            n++;
+                                        }
                                     }
                                     else
                                     {
-                                        Console.WriteLine("Driver with this bus number not found. Try again. \n");
-                                        foreach (driver aDriver in drivers)
-                                        {
-                                            Console.WriteLine(aDriver);
-                                        }
+                                        Console.WriteLine("Bus number must be a number");
                                         n++;
                                     }
                                 }
-                                else
-                                {
-                                    Console.WriteLine("Bus number must be a number");
-                                    n++;
-                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Drivers not found");
                             }
                             i++;
                             break;

@@ -93,36 +93,43 @@ namespace driversList
                             i++;
                             break;
                         case "3":
-                            for (int n = 0; n >= 0; n--)
+                            if (drivers.Count > 0)
                             {
-                                Console.WriteLine(" \n Enter the number of the driver to be deleted");
-                                driversCount = drivers.Count;
-                                q = Console.ReadLine();
-                                bool isNum = int.TryParse(q, out number);
-                                if (isNum && Convert.ToInt32(q) < drivers.Count)
+                                for (int n = 0; n >= 0; n--)
                                 {
-                                    drivers.RemoveAt(Convert.ToInt32(q));
-                                    driversCount1 = drivers.Count;
-                                    if (driversCount1 != driversCount)
+                                    Console.WriteLine(" \n Enter the number of the driver to be deleted");
+                                    driversCount = drivers.Count;
+                                    q = Console.ReadLine();
+                                    bool isNum = int.TryParse(q, out number);
+                                    if (isNum && Convert.ToInt32(q) < drivers.Count)
                                     {
-                                        Console.WriteLine("Successfully deleted");
+                                        drivers.RemoveAt(Convert.ToInt32(q));
+                                        driversCount1 = drivers.Count;
+                                        if (driversCount1 != driversCount)
+                                        {
+                                            Console.WriteLine("Successfully deleted");
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("The driver with this number was not found");
+                                            n++;
+                                        }
+                                    }
+                                    else if (!isNum)
+                                    {
+                                        Console.WriteLine("The driver number must be a number");
+                                        n++;
                                     }
                                     else
                                     {
-                                        Console.WriteLine("The driver with this number was not found");
+                                        Console.WriteLine("No driver with this number");
                                         n++;
                                     }
                                 }
-                                else if(!isNum)
-                                {
-                                    Console.WriteLine("The driver number must be a number");
-                                    n++;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("No driver with this number");
-                                    n++;
-                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("Drivers not found");
                             }
                             i++;
                             break;

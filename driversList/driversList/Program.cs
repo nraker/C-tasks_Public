@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 
 namespace driversList
@@ -59,37 +58,48 @@ namespace driversList
                             break;
                         case "2":
                             
-                            for (int m = 0; m >= 0; m--)
-                            {
+
                                 Console.WriteLine("\n Enter in the new driver details");
 
                                 Console.WriteLine(" 1. Enter  full name");
                                 b = Console.ReadLine();
+                                for (int l = 0; l >= 0; l--) 
+                                { 
+                                    Console.WriteLine(" 2. Enter bus number");
+                                    c = Console.ReadLine();
 
-                                Console.WriteLine(" 2. Enter bus number");
-                                c = Console.ReadLine();
-
-                                Console.WriteLine(" 3. Enter route number");
-                                d = Console.ReadLine();
-                                
-                                bool isNumC = int.TryParse(c, out number), isNumD = int.TryParse(d, out number);
-
-                                if (isNumC && isNumD)
-                                {
-                                    drivers.Add(new driver()
+                                    bool isNumC = int.TryParse(c, out number);
+                                    if (isNumC)
                                     {
-                                        fullName = b,
-                                        busNumber = Convert.ToInt32(c),
-                                        routeNumber = Convert.ToInt32(d)
-                                    });
-                                    Console.WriteLine("New number of drivers: " + drivers.Count);
+                                        for (int m = 0; m >= 0; m--)
+                                        {
+                                            Console.WriteLine(" 3. Enter route number");
+                                            d = Console.ReadLine();
+                                            bool isNumD = int.TryParse(d, out number);
+                                            if (isNumD)
+                                            {
+                                                drivers.Add(new driver()
+                                                {
+                                                    fullName = b,
+                                                    busNumber = Convert.ToInt32(c),
+                                                    routeNumber = Convert.ToInt32(d)
+                                                });
+                                                Console.WriteLine("New number of drivers: " + drivers.Count);
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("Route number must contain only numbers \n");
+                                                m++;
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Bus number must contain only numbers \n");
+                                        l++;
+                                    }
                                 }
-                                else
-                                {
-                                    Console.WriteLine("Bus number and route number must contain only numbers \n");
-                                    m++;
-                                }
-                            }
+                            
                             i++;
                             break;
                         case "3":

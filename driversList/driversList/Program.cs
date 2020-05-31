@@ -38,7 +38,8 @@ namespace driversList
 
             for (int i = 0; i >= 0; i--)
             {
-                Console.WriteLine("\n What action to perform? \n \n  1. General information \n  2. Add new driver \n  3. Remove driver by list number \n  4. Remove driver by list bus number \n  5. Close \n");
+                Console.WriteLine("\n What action to perform? \n \n  1. General information \n  2. Add new driver \n  
+                                  3. Remove driver by list number \n  4. Remove driver by list bus number \n  5. Close \n");
                 string a = Console.ReadLine();
                 bool isNumber = int.TryParse(a, out number);
 

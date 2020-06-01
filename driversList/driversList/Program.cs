@@ -19,7 +19,7 @@ namespace driversList
         
         public int routeNumber { get; set; }
 
-        public override string ToString()               // При вызове листа с классом driver в Console.WriteLine() конветирует все позиции в формат string
+        public override string ToString()               // При вызове листа с классом driver в Console.WriteLine() конвертирует все позиции в формат string
         {
             return "Name: " + fullName + "  Autobus number: " + busNumber + "  Route number: " + routeNumber;  
         }

@@ -34,9 +34,9 @@ namespace driversList
 
 
             drivers.Add(new driver() { fullName = "Russell Damian Dominic", busNumber = 15, routeNumber = 20 });
-            drivers.Add(new driver() { fullName = "Mills Britton Brandon", busNumber = 20, routeNumber = 99 });
+            drivers.Add(new driver() { fullName = "Mills Britton Brandon", busNumber = 25, routeNumber = 99 });
 
-            for (int i = 0; i >= 0; i--)
+            for (int i = 1; i > 0; i--)
             {
                 Console.WriteLine("\n What action to perform? \n \n  1. General information \n  2. Add new driver \n  3. Remove driver by list number \n  4. Remove driver by list bus number \n  5. Close \n");
                 string a = Console.ReadLine();
@@ -63,7 +63,7 @@ namespace driversList
 
                                 Console.WriteLine(" 1. Enter  full name");
                                 b = Console.ReadLine();
-                                for (int l = 0; l >= 0; l--) 
+                                for (int l = 1; l > 0; l--) 
                                 { 
                                     Console.WriteLine(" 2. Enter bus number");
                                     c = Console.ReadLine();
@@ -71,7 +71,7 @@ namespace driversList
                                     bool isNumC = int.TryParse(c, out number);
                                     if (isNumC)
                                     {
-                                        for (int m = 0; m >= 0; m--)
+                                        for (int m = 1; m > 0; m--)
                                         {
                                             Console.WriteLine(" 3. Enter route number");
                                             d = Console.ReadLine();
@@ -88,14 +88,18 @@ namespace driversList
                                             }
                                             else
                                             {
-                                                Console.WriteLine("Route number must contain only numbers \n");
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("\n Error: Route number must contain only numbers \n");
+                                                Console.ResetColor();
                                                 m++;
                                             }
                                         }
                                     }
                                     else
                                     {
-                                        Console.WriteLine("Bus number must contain only numbers \n");
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.WriteLine("\n Error: Bus number must contain only numbers \n");
+                                        Console.ResetColor();
                                         l++;
                                     }
                                 }
@@ -105,7 +109,7 @@ namespace driversList
                         case "3":
                             if (drivers.Count > 0)
                             {
-                                for (int n = 0; n >= 0; n--)
+                                for (int n = 1; n > 0; n--)
                                 {
                                     Console.WriteLine(" \n Enter the number of the driver to be deleted");
                                     driversCount = drivers.Count;
@@ -113,90 +117,204 @@ namespace driversList
                                     bool isNum = int.TryParse(q, out number);
                                     if (isNum && Convert.ToInt32(q) < drivers.Count)
                                     {
-                                        drivers.RemoveAt(Convert.ToInt32(q));
-                                        driversCount1 = drivers.Count;
-                                        if (driversCount1 != driversCount)
+                                        for (int m = 1; m > 0; m--)
                                         {
-                                            Console.WriteLine("Successfully deleted");
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("The driver with this number was not found");
-                                            n++;
+                                            Console.WriteLine("\n Are you want delete: " + drivers[Convert.ToInt32(q)] + ", you sure?");
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine("\n 1. Yes");
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine(" 2. No");
+                                            Console.ResetColor();
+                                            c = Console.ReadLine();
+                                            if (c == "1" || c == "2")
+                                            {
+                                                switch (c)
+                                                {
+                                                    case "1":
+                                                        drivers.RemoveAt(Convert.ToInt32(q));
+                                                        driversCount1 = drivers.Count;
+                                                        if (driversCount1 != driversCount)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.WriteLine("\n Successfully deleted");
+                                                            Console.ResetColor();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.WriteLine("\n Error: The driver with this number was not found");
+                                                            Console.ResetColor();
+                                                            n++;
+                                                        }
+                                                        break;
+                                                    case "2":
+                                                        break;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("\n Error: Choose the 1 or 2 action");
+                                                Console.ResetColor();
+                                                m++;
+                                            }
                                         }
                                     }
                                     else if (!isNum)
                                     {
-                                        Console.WriteLine("The driver number must be a number");
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.WriteLine("\n Error: The driver number must be a number");
+                                        Console.ResetColor();
                                         n++;
                                     }
                                     else
                                     {
-                                        Console.WriteLine("No driver with this number");
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.WriteLine("\n Error: No driver with this number");
+                                        Console.ResetColor();
                                         n++;
                                     }
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("Drivers not found");
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("\n Error: Drivers not found");
+                                Console.ResetColor();
                             }
                             i++;
                             break;
                         case "4":
                             if (drivers.Count > 0 && isNumber)
                             {
-                                for (int n = 0; n >= 0; n--)
+                                for (int n = 1; n > 0; n--)
                                 {
                                     driversCount = drivers.Count;
+                                    
+                                    Console.WriteLine();
+                                    foreach (driver aDriver in drivers)
+                                    {
+                                        Console.WriteLine(" " + aDriver);
+                                    }
 
-                                    Console.WriteLine("Enter driver bus number");
+                                    Console.WriteLine("\n Enter driver bus number");
+                                    
                                     c = Console.ReadLine();
+                                    
                                     bool isNum = int.TryParse(c, out number);
                                     if (isNum && drivers.Count > 0)
                                     {
-                                        drivers.Remove(new driver() { busNumber = Convert.ToInt32(c) });
-                                        driversCount1 = drivers.Count;
-                                        if (driversCount != driversCount1)
+                                        for (int m = 1; m > 0; m--)
                                         {
-                                            Console.WriteLine("Driver successfully deleted");
-                                        }
-                                        else
-                                        {
-                                            Console.WriteLine("Driver with this bus number not found. Try again. \n");
-                                            foreach (driver aDriver in drivers)
-                                            {
-                                                Console.WriteLine(aDriver);
+                                            Console.WriteLine("\n Are you sure you want to remove the driver?");
+                                            Console.ForegroundColor = ConsoleColor.Green;
+                                            Console.WriteLine("\n 1. Yes");
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine(" 2. No");
+                                            Console.ResetColor();
+                                            b = Console.ReadLine();
+                                            bool isNumB = int.TryParse(c, out number);
+                                            if(isNumB && b == "1" || b == "2") {
+                                                switch (b)
+                                                {
+                                                    case "1":
+                                                        drivers.Remove(new driver() { busNumber = Convert.ToInt32(c) });
+                                                        driversCount1 = drivers.Count;
+                                                        if (driversCount != driversCount1)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Green;
+                                                            Console.WriteLine("\n Driver successfully deleted");
+                                                            Console.ResetColor();
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Red;
+                                                            Console.WriteLine("\n Error: Driver with this bus number not found. Try again. \n");
+                                                            Console.ResetColor();
+                                                            foreach (driver aDriver in drivers)
+                                                            {
+                                                                Console.WriteLine(aDriver);
+                                                            }
+                                                            n++;
+                                                        }
+                                                        break;
+                                                    case "2":
+                                                        break;
+                                                }
                                             }
-                                            n++;
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("\n Error: Choose 1 or 2 action");
+                                                Console.ResetColor();
+                                                m++;
+                                            }
                                         }
                                     }
                                     else
                                     {
-                                        Console.WriteLine("Bus number must be a number");
+                                        Console.ForegroundColor = ConsoleColor.Red;
+                                        Console.WriteLine("\n Error: Bus number must be a number");
+                                        Console.ResetColor();
                                         n++;
                                     }
                                 }
                             }
                             else
                             {
-                                Console.WriteLine("Drivers not found");
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("\n Error: Drivers not found");
+                                Console.ResetColor();
                             }
                             i++;
                             break;
                         case "5":
+                            for (int n = 1; n > 0; n--) {   
+                                Console.WriteLine("Are you sure? \n 1. Yes \n 2. No");
+                            
+                            c = Console.ReadLine();
+                            bool isNumC5 = int.TryParse(c, out number);
+                            
+                            
+                                if (isNumC5 && c == "1" || c == "2")
+                                {
+                                    switch (c)
+                                    {
+                                        case "1":
+                                            Console.WriteLine("\n Bye bye! \n ");
+                                            Console.ReadLine();
+                                            break;
+                                        
+                                        case "2":
+                                            i++;
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Red;
+                                    Console.WriteLine("\n Error: Choose the 1 or 2 action\n");
+                                    Console.ResetColor();
+                                    n++;
+                                }
+                            }
+
                             break;
                     }
 
                 }
                 else if(!isNumber)
                 {
-                    Console.WriteLine("Enter the action number \n");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\n Error: Enter the action number \n");
+                    Console.ResetColor();
                     i++;
                 }
                 else
                 {
-                    Console.WriteLine("\n Select an action from 1 to 5");
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\n Error: Select an action from 1 to 5");
+                    Console.ResetColor();
                     i++;
                 }
                 

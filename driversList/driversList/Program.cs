@@ -1,20 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Generic;                   
+
+
+
+
+// В программе есть много чего интересного, но комментировать я это не буду, потому что вы все равно ничего не прочитаете
+
+
 
 
 namespace driversList
 {
     public class driver : IEquatable<driver>
     {
-        public string fullName { get; set; }
+        public string fullName { get; set; }  
 
-        public int busNumber { get; set; }
+        public int busNumber { get; set; }                     // Данные позиций в листе
         
         public int routeNumber { get; set; }
 
-        public override string ToString()
+        public override string ToString()               // При вызове листа с классом driver в Console.WriteLine() конветирует все позиции в формат string
         {
-            return "Name: " + fullName + "  Autobus number: " + busNumber + "  Route number: " + routeNumber;
+            return "Name: " + fullName + "  Autobus number: " + busNumber + "  Route number: " + routeNumber;  
         }
 
         public bool Equals(driver other)
@@ -34,10 +41,11 @@ namespace driversList
 
 
             drivers.Add(new driver() { fullName = "Russell Damian Dominic", busNumber = 15, routeNumber = 20 });
-            drivers.Add(new driver() { fullName = "Mills Britton Brandon", busNumber = 25, routeNumber = 99 });
+            drivers.Add(new driver() { fullName = "Mills Britton Brandon", busNumber = 25, routeNumber = 99 });        // Заранее добавленные позиции для проверок функций
 
             for (int i = 1; i > 0; i--)
             {
+                // Перечисление всевозможных действий
                 Console.WriteLine("\n What action to perform? \n \n  1. General information \n  2. Add new driver \n  3. Remove driver by list number \n  4. Remove driver by list bus number \n  5. Close \n");
                 string a = Console.ReadLine();
                 bool isNumber = int.TryParse(a, out number);
@@ -46,19 +54,18 @@ namespace driversList
                 {
                     switch (a)
                     {
-                        case "1":
+                        case "1":                                                                 // Полная информация по листу
                             Console.WriteLine("\n General information \n");
-                            foreach (driver aDriver in drivers)
+                            foreach (driver aDriver in drivers)                                   // Содержание позиций в списке
                             {
                                 Console.WriteLine(aDriver);
                             }
-                            Console.WriteLine("\n Total number of drivers: " + drivers.Count);
+                            Console.WriteLine("\n Total number of drivers: " + drivers.Count);   // Количество позиций в списке
 
                             i++;
                             break;
-                        case "2":
-                            
-
+                        case "2":                                                                // Добавление нового водителя
+                                
                                 Console.WriteLine("\n Enter in the new driver details");
 
                                 Console.WriteLine(" 1. Enter  full name");
@@ -68,7 +75,7 @@ namespace driversList
                                     Console.WriteLine(" 2. Enter bus number");
                                     c = Console.ReadLine();
 
-                                    bool isNumC = int.TryParse(c, out number);
+                                    bool isNumC = int.TryParse(c, out number);    // Проверка переменной 
                                     if (isNumC)
                                     {
                                         for (int m = 1; m > 0; m--)
@@ -78,13 +85,13 @@ namespace driversList
                                             bool isNumD = int.TryParse(d, out number);
                                             if (isNumD)
                                             {
-                                                drivers.Add(new driver()
+                                                drivers.Add(new driver()                      // Добавление нового водителя
                                                 {
                                                     fullName = b,
                                                     busNumber = Convert.ToInt32(c),
                                                     routeNumber = Convert.ToInt32(d)
                                                 });
-                                                Console.WriteLine("New number of drivers: " + drivers.Count);
+                                                Console.WriteLine("New number of drivers: " + drivers.Count); 
                                             }
                                             else
                                             {
@@ -106,7 +113,7 @@ namespace driversList
                             
                             i++;
                             break;
-                        case "3":
+                        case "3":      // Удаление позиции по ее номеру в списке (0, 1, 2, 3...)
                             if (drivers.Count > 0)
                             {
                                 for (int n = 1; n > 0; n--)
@@ -131,7 +138,7 @@ namespace driversList
                                                 switch (c)
                                                 {
                                                     case "1":
-                                                        drivers.RemoveAt(Convert.ToInt32(q));
+                                                        drivers.RemoveAt(Convert.ToInt32(q));  // Удаление позиции
                                                         driversCount1 = drivers.Count;
                                                         if (driversCount1 != driversCount)
                                                         {
@@ -184,7 +191,7 @@ namespace driversList
                             }
                             i++;
                             break;
-                        case "4":
+                        case "4":         // Удаление позиции в листе по номеру автобуса
                             if (drivers.Count > 0 && isNumber)
                             {
                                 for (int n = 1; n > 0; n--)
@@ -218,7 +225,7 @@ namespace driversList
                                                 switch (b)
                                                 {
                                                     case "1":
-                                                        drivers.Remove(new driver() { busNumber = Convert.ToInt32(c) });
+                                                        drivers.Remove(new driver() { busNumber = Convert.ToInt32(c) }); // удаление позиции в листе
                                                         driversCount1 = drivers.Count;
                                                         if (driversCount != driversCount1)
                                                         {
@@ -268,7 +275,7 @@ namespace driversList
                             }
                             i++;
                             break;
-                        case "5":
+                        case "5":   // Закрытие приложения
                             for (int n = 1; n > 0; n--) {   
                                 Console.WriteLine("Are you sure? \n 1. Yes \n 2. No");
                             

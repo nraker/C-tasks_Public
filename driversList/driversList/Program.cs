@@ -1,12 +1,5 @@
-﻿using System;
+using System;
 using System.Collections.Generic;                   
-
-
-
-
-// В программе есть много чего интересного, но комментировать я это не буду, потому что вы все равно ничего не прочитаете
-
-
 
 
 namespace driversList

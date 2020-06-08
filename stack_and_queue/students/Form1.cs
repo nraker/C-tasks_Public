@@ -17,7 +17,6 @@ namespace students
            Queue<string> student_queue = new Queue<string>();
            string student_name;
 
-        refres
         private void button2_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked && student_stack.Count > 0)

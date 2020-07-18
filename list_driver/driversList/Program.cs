@@ -1,5 +1,8 @@
 using System;
-using System.Collections.Generic;                   
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
 
 
 namespace driversList
@@ -32,6 +35,19 @@ namespace driversList
             string b, c, d, q;
             int number, driversCount, driversCount1;
 
+            Stream fs = new FileStream(@"E:\archive.txt", FileMode.Open, FileAccess.Read);
+            using (StreamReader sr = new StreamReader(fs, Encoding.Default))
+            {
+                string temp = string.Empty;
+                while (sr.Peek() != -1)
+                {
+                    temp = sr.ReadLine();
+                    if (temp == "flag")
+                        continue;
+                    else
+                        drivers.Add(new driver() { fullName = temp });
+                }
+            }
 
             drivers.Add(new driver() { fullName = "Russell Damian Dominic", busNumber = 15, routeNumber = 20 });
             drivers.Add(new driver() { fullName = "Mills Britton Brandon", busNumber = 25, routeNumber = 99 });        // Заранее добавленные позиции для проверок функций
@@ -39,11 +55,11 @@ namespace driversList
             for (int i = 1; i > 0; i--)
             {
                 // Перечисление всевозможных действий
-                Console.WriteLine("\n What action to perform? \n \n  1. General information \n  2. Add new driver \n  3. Remove driver by list number \n  4. Remove driver by list bus number \n  5. Close \n");
+                Console.WriteLine("\n What action to perform? \n \n  1. General information \n  2. Add new driver \n  3. Remove driver by list number \n  4. Remove driver by list bus number \n  5. Close \n  6. Save driver list \n");
                 string a = Console.ReadLine();
                 bool isNumber = int.TryParse(a, out number);
 
-                if (isNumber && Convert.ToInt32(a) < 6 && Convert.ToInt32(a) > 0)
+                if (isNumber && Convert.ToInt32(a) <= 6 && Convert.ToInt32(a) >= 1)
                 {
                     switch (a)
                     {
@@ -298,8 +314,20 @@ namespace driversList
                                     n++;
                                 }
                             }
-
+                            
                             break;
+                        case "6":
+                            string writePath = @"E:\archive.txt";
+                            
+                                using (StreamWriter sw = new StreamWriter(writePath, false, System.Text.Encoding.Default))
+                                {
+                                foreach (driver aDriver in drivers)                                   // Содержание позиций в списке
+                                {
+                                    sw.WriteLine(aDriver);
+                                }
+                                sw.WriteLine("\n Total number of drivers: " + drivers.Count);   // Количество позиций в списке
+                            }
+                                break;
                     }
 
                 }

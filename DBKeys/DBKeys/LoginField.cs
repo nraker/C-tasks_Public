@@ -118,13 +118,15 @@ namespace DBKeys
 
         private void passField_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9')))
-            {
-                e.Handled = true;
-            }
+            checkLetter(sender, e);
         }
 
         private void logField_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            checkLetter(sender, e);
+        }
+
+        private void checkLetter(object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9')))
             {

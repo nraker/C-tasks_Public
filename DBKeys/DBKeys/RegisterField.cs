@@ -36,7 +36,7 @@ namespace DBKeys
         {
             string userLogin = logField.Text, userPass = passField.Text, userCPass = passConfirmField.Text, userMail = mailField.Text;
 
-            if (userPass == userCPass && (userPass.Length >= 8 && userCPass.Length >= 8) && userLogin.Length >= 6 && userMail.Length >= 6 && checkBox2.Checked && !checkUser() &&(char.IsUpper(userPass[0]) && char.IsUpper(userCPass[0])))
+            if (userPass == userCPass && (userPass.Length >= 8 && userCPass.Length >= 8) && userLogin.Length >= 6 && userMail.Length >= 6 && checkBox2.Checked && !checkUser() &&(char.IsUpper(userPass[0]) && char.IsUpper(userCPass[0]) && mailCheck(userMail)))
             {
                 DB db = new DB();
                 MySqlCommand command = new MySqlCommand("INSERT INTO `users` (`login`, `pass`, `mail`) VALUES (@uLog, @uPass, @uMail)", db.getConnection());
@@ -84,6 +84,10 @@ namespace DBKeys
             else if (userPass != userCPass)
             {
                 MessageBox.Show("Пароли не совпадают");
+            }
+            else if (!mailCheck(userMail))
+            {
+                MessageBox.Show("Введите почту");
             }
             else if (!checkBox2.Checked)
             {
@@ -201,28 +205,41 @@ namespace DBKeys
             mailField.ForeColor = Color.Black;
         }
 
-        public void logField_KeyPress(object sender, KeyPressEventArgs e)
+        public void logField_KeyPress(object sender, KeyPressEventArgs e) // only english 
         {
-            if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9')))
+            checkLetter(sender, e);
+        }
+        private void passField_KeyPress(object sender, KeyPressEventArgs e) // only english 
+        {
+            checkLetter(sender, e);
+        }
+        private void passConfirmField_KeyPress(object sender, KeyPressEventArgs e) // only english 
+        {
+            checkLetter(sender, e);
+        }
+        private void mailField_KeyPress(object sender, KeyPressEventArgs e)  // only english 
+        {
+            if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == '@' || e.KeyChar == '.')))
             {
                 e.Handled = true;
             }
         }
-        private void passField_KeyPress(object sender, KeyPressEventArgs e)
+        private static Boolean mailCheck(string userMail)  // Check @ in mail
         {
-            if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9')))
-            {
-                e.Handled = true;
-            }
+                for (int let = 0; let < userMail.Length; let++)
+                {
+                    string letterCheck = Convert.ToString(userMail[let]);
+
+                    if ("@" == letterCheck)
+                    {
+                        return true;
+                    }
+                }
+            
+            return false;
         }
-        private void passConfirmField_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9')))
-            {
-                e.Handled = true;
-            }
-        }
-        private void mailField_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void checkLetter (object sender, KeyPressEventArgs e)
         {
             if (!(Char.IsControl(e.KeyChar) || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= '0' && e.KeyChar <= '9')))
             {

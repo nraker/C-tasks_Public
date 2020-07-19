@@ -89,7 +89,9 @@
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.passField);
             this.Controls.Add(this.logField);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(309, 212);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(309, 212);
             this.Name = "LoginField";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
